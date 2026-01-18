@@ -1,5 +1,14 @@
 import { Request, Response, NextFunction } from 'express';
-import { ApiResponse } from '@dating-app/shared-types';
+
+// Define ApiResponse locally (will be moved to shared-types later)
+interface ApiResponse {
+  success: boolean;
+  data?: any;
+  error?: {
+    code: string;
+    message: string;
+  };
+}
 
 export class AppError extends Error {
   constructor(
